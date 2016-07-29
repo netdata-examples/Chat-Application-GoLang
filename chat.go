@@ -13,7 +13,7 @@ import (
 )
 
 // Should look like path
-const websocketRoom = "/chat"
+const websocketRoom = "/gochat"
 
 func main() {
 	lastMessages := []string{}

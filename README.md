@@ -35,7 +35,7 @@ so.On("send_message", func(message string) {
 ```
 
 ###### Sending a copy of new message to Netdata.com
-Don't forget to change YOUR_API_KEY on XML query. You can have a API Key on Netdata.com for project or can using default key. If is set new message, sending to socket broatcast and Netdata.com for saving message.
+Don't forget to change YOUR_API_KEY on XML query. You can have a API Key on Netdata.com for project or can using default key. If any new message, send to socket broatcast and Netdata.com for saving message.
 ```
 log.Printf("Sent message from %s: %s", user, message)
 

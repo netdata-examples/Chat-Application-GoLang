@@ -77,3 +77,44 @@ if listen == "" {
   listen = ":3001"
 }
 ```
+
+
+### Details of AngularJS codes
+
+###### Loading of modules
+```
+angular.module('chatWebApp', ['ngAnimate', 'ngCookies', 'btford.socket-io', 'angularMoment', 'luegg.directives']);
+```
+
+###### Listening of socket
+If any new messages, push to $scope.message and then show the notification on browser.
+```
+$scope.$on('socket:message', function (ev, data) {
+    if ($scope.messages.length > 100) {
+        $scope.messages.splice(0, 1);
+    }
+    var msg = JSON.parse(data);
+    $scope.messages.push(msg);
+
+    var hidden = false;
+    if (typeof document.hidden !== "undefined") {
+        hidden = "hidden";
+    } else if (typeof document.mozHidden !== "undefined") {
+        hidden = "mozHidden";
+    } else if (typeof document.msHidden !== "undefined") {
+        hidden = "msHidden";
+    } else if (typeof document.webkitHidden !== "undefined") {
+        hidden = "webkitHidden";
+    }
+
+    // $scope.username is not set if the user didn't provide a name and thus didn't display the chat window
+    // document[hidden] is true if the page is minimized or tabbed-out — details vary by browser
+    if ($scope.username && document[hidden] && msg.type == 'message' && msg.dateTime >= dateTime) {
+        var instance = new Notification(
+            msg.username + " says:", {
+                 body: msg.message
+             }
+        );
+    }
+});
+```

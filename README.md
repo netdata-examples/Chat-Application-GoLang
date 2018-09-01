@@ -1,5 +1,5 @@
 # Go Chat Application with Angular
-Chat Application written by [root](http://root.ist) and used Golang and AngularJS. Thanks to @vinceprignano.
+Chat Application written by [Mustafa Keskin](https://keskin.work) and used Golang and AngularJS. Thanks to @vinceprignano.
 
 ### Installation of socket.io
 Select the Gopath:
